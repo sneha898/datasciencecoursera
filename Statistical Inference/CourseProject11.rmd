@@ -1,0 +1,97 @@
+---
+title: "CProj1"
+author: "Sneha Bhattacharjee"
+date: "10/17/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+### Introduction
+In this peer graded assignment, i will be investigating the exponential distribution in R and hence compare it with the Central Limit Theorem. I will be investigating the distribution of averages of 40 exponentials. A total of 1000 simulations will be done.
+
+### Setup
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Load packages and library
+For the purpose of this analysis, i will be using the library 'ggplot2'.
+
+```{r load-packages, message = FALSE}
+library(ggplot2)
+```
+
+### Illustration of simulations
+1. Show the sample mean and compare it to theoretical mean of distribution obtained.
+As per given instructions, the exponential distributions can be simulated in R using rexp(n, lambda) where, lambda is rate parameter. The simulation is repeated 1000 times here. 
+The theoretical mean of exponential distribution is 1/lambda and the standard deviation is also 1/lambda.
+Here, for 1000 simulations, lambda is considered 0.2 and sample size ,i.e, n is 40.
+
+```{r simu1.1}
+#Setting the seed to ensure reproduceability
+set.seed(11081990)
+
+#Setting lambda as 0.2
+lambda <- 0.2 
+#Set values of n
+n <- 40
+
+#Obtain the sample mean of 1 simulation with the above parameters
+#Obtain sample mean of 1000 simulations with the same above parameters
+#Calculate the mean of this simulation of sample means
+expoDist <- matrix(data=rexp(n * 1000, lambda), nrow=1000)
+expoDistMeans <- data.frame(means=apply(expoDist, 1, mean))
+
+#Plot the means obtained
+ggplot(data = expoDistMeans, aes(x = means)) + 
+  geom_histogram(binwidth=0.1) +  stat_function(fun = dnorm, color = "orange") +
+  scale_x_continuous(breaks=round(seq(min(expoDistMeans$means), max(expoDistMeans$means), by=1)))
+```
+
+#Theoretical mean that is the centre of distribution is
+```{r}
+th <- 1/lambda
+th  #Let Th be the expected mean 
+```
+```{r}
+mean1000 <- mean(expoDistMeans$means)
+mean1000
+```
+
+The centre of distribution of sample means of 40 exponentials is close to the theoretical center of the distribution.
+
+### 2. Show how variable the sample is (via variance) and compare it to the theoretical variance of the distribution.
+```{r simu1.2}
+#Find the expected standard deviation 
+sd <- 1/lambda/sqrt(n)
+sd
+#Variance of standard deviation obtained as
+Vare <- sd^2
+Vare
+```
+```{r}
+sd_x <- sd(expoDistMeans$means)
+sd_x
+Var_x <- var(expoDistMeans$means)
+Var_x
+```
+
+We can observe that the standar deviations are very close in value. Although minor differences exist as variance is the square of standard deviation.
+
+### 3.To show that distribution is approximately normal.
+```{r disb1.3}
+#To plot the sample means obtained from the simulation.
+ggplot(data = expoDistMeans, aes(x = means)) + 
+  geom_histogram(binwidth=0.1, aes(y=..density..), alpha=0.2) + 
+  stat_function(fun = dnorm, arg = list(mean = th , sd = sd), colour = "red", size=1) + 
+  geom_vline(xintercept = th, size=1, colour="#CC0000") + 
+  geom_density(colour="pink", size=1) +
+  geom_vline(xintercept = mean1000, size=1, colour="#0000CC") + 
+  scale_x_continuous(breaks=seq(th-3,th+3,1), limits=c(th-3,th+3))  + ggtitle("The Histogram for simulation of Samples Means with n = 1000") + scale_x_continuous("Sample Means") + ylab("Density")
+```
+
+### Conclusion and Inference
+We know that a Normal Distribution follows a Bell-shaped curve, where the red line represents calculated normal distribution, which is comparable to the shape of histogram.
+The Central Limit Theorem states that the sample means will become that of a standard normal distribution as the sample size increases as well as meeting two conditions of independence (n < 10% ) and normal, or if skewed distribution, then n > 30.
+Thus, from the graph we see, the calculated distribution of means of random sapmled exponential distributions, overlaps quite properly with the normal distribution with the assumed value of lambda.
+

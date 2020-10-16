@@ -1,0 +1,300 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={CProj1},
+  pdfauthor={Sneha Bhattacharjee},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{CProj1}
+\author{Sneha Bhattacharjee}
+\date{10/17/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\subsubsection{Introduction}\label{introduction}}
+
+In this peer graded assignment, i will be investigating the exponential
+distribution in R and hence compare it with the Central Limit Theorem. I
+will be investigating the distribution of averages of 40 exponentials. A
+total of 1000 simulations will be done.
+
+\hypertarget{setup}{%
+\subsubsection{Setup}\label{setup}}
+
+\hypertarget{load-packages-and-library}{%
+\subsubsection{Load packages and
+library}\label{load-packages-and-library}}
+
+For the purpose of this analysis, i will be using the library `ggplot2'.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{illustration-of-simulations}{%
+\subsubsection{Illustration of
+simulations}\label{illustration-of-simulations}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Show the sample mean and compare it to theoretical mean of
+  distribution obtained. As per given instructions, the exponential
+  distributions can be simulated in R using rexp(n, lambda) where,
+  lambda is rate parameter. The simulation is repeated 1000 times here.
+  The theoretical mean of exponential distribution is 1/lambda and the
+  standard deviation is also 1/lambda. Here, for 1000 simulations,
+  lambda is considered 0.2 and sample size ,i.e, n is 40.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Setting the seed to ensure reproduceability}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{11081990}\NormalTok{)}
+
+\CommentTok{#Setting lambda as 0.2}
+\NormalTok{lambda <-}\StringTok{ }\FloatTok{0.2} 
+\CommentTok{#Set values of n}
+\NormalTok{n <-}\StringTok{ }\DecValTok{40}
+
+\CommentTok{#Obtain the sample mean of 1 simulation with the above parameters}
+\CommentTok{#Obtain sample mean of 1000 simulations with the same above parameters}
+\CommentTok{#Calculate the mean of this simulation of sample means}
+\NormalTok{expoDist <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\KeywordTok{rexp}\NormalTok{(n }\OperatorTok{*}\StringTok{ }\DecValTok{1000}\NormalTok{, lambda), }\DataTypeTok{nrow=}\DecValTok{1000}\NormalTok{)}
+\NormalTok{expoDistMeans <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{means=}\KeywordTok{apply}\NormalTok{(expoDist, }\DecValTok{1}\NormalTok{, mean))}
+
+\CommentTok{#Plot the means obtained}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ expoDistMeans, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ means)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{binwidth=}\FloatTok{0.1}\NormalTok{) }\OperatorTok{+}\StringTok{  }\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun =}\NormalTok{ dnorm, }\DataTypeTok{color =} \StringTok{"orange"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{round}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\KeywordTok{min}\NormalTok{(expoDistMeans}\OperatorTok{$}\NormalTok{means), }\KeywordTok{max}\NormalTok{(expoDistMeans}\OperatorTok{$}\NormalTok{means), }\DataTypeTok{by=}\DecValTok{1}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{CourseProject11_files/figure-latex/simu1.1-1.pdf}
+
+\#Theoretical mean that is the centre of distribution is
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{th <-}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{lambda}
+\NormalTok{th  }\CommentTok{#Let Th be the expected mean }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean1000 <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(expoDistMeans}\OperatorTok{$}\NormalTok{means)}
+\NormalTok{mean1000}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5.002927
+\end{verbatim}
+
+The centre of distribution of sample means of 40 exponentials is close
+to the theoretical center of the distribution.
+
+\hypertarget{show-how-variable-the-sample-is-via-variance-and-compare-it-to-the-theoretical-variance-of-the-distribution.}{%
+\subsubsection{2. Show how variable the sample is (via variance) and
+compare it to the theoretical variance of the
+distribution.}\label{show-how-variable-the-sample-is-via-variance-and-compare-it-to-the-theoretical-variance-of-the-distribution.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Find the expected standard deviation }
+\NormalTok{sd <-}\StringTok{ }\DecValTok{1}\OperatorTok{/}\NormalTok{lambda}\OperatorTok{/}\KeywordTok{sqrt}\NormalTok{(n)}
+\NormalTok{sd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7905694
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Variance of standard deviation obtained as}
+\NormalTok{Vare <-}\StringTok{ }\NormalTok{sd}\OperatorTok{^}\DecValTok{2}
+\NormalTok{Vare}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.625
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sd_x <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(expoDistMeans}\OperatorTok{$}\NormalTok{means)}
+\NormalTok{sd_x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.7767084
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Var_x <-}\StringTok{ }\KeywordTok{var}\NormalTok{(expoDistMeans}\OperatorTok{$}\NormalTok{means)}
+\NormalTok{Var_x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6032759
+\end{verbatim}
+
+We can observe that the standar deviations are very close in value.
+Although minor differences exist as variance is the square of standard
+deviation.
+
+\hypertarget{to-show-that-distribution-is-approximately-normal.}{%
+\subsubsection{3.To show that distribution is approximately
+normal.}\label{to-show-that-distribution-is-approximately-normal.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#To plot the sample means obtained from the simulation.}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ expoDistMeans, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ means)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{binwidth=}\FloatTok{0.1}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y=}\NormalTok{..density..), }\DataTypeTok{alpha=}\FloatTok{0.2}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun =}\NormalTok{ dnorm, }\DataTypeTok{arg =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{mean =}\NormalTok{ th , }\DataTypeTok{sd =}\NormalTok{ sd), }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =}\NormalTok{ th, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{colour=}\StringTok{"#CC0000"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{colour=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =}\NormalTok{ mean1000, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\DataTypeTok{colour=}\StringTok{"#0000CC"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{seq}\NormalTok{(th}\DecValTok{-3}\NormalTok{,th}\OperatorTok{+}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{limits=}\KeywordTok{c}\NormalTok{(th}\DecValTok{-3}\NormalTok{,th}\OperatorTok{+}\DecValTok{3}\NormalTok{))  }\OperatorTok{+}\StringTok{ }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"The Histogram for simulation of Samples Means with n = 1000"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_x_continuous}\NormalTok{(}\StringTok{"Sample Means"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Density"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring unknown parameters: arg
+\end{verbatim}
+
+\begin{verbatim}
+## Scale for 'x' is already present. Adding another scale for 'x', which will
+## replace the existing scale.
+\end{verbatim}
+
+\includegraphics{CourseProject11_files/figure-latex/disb1.3-1.pdf}
+
+\hypertarget{conclusion-and-inference}{%
+\subsubsection{Conclusion and
+Inference}\label{conclusion-and-inference}}
+
+We know that a Normal Distribution follows a Bell-shaped curve, where
+the red line represents calculated normal distribution, which is
+comparable to the shape of histogram. The Central Limit Theorem states
+that the sample means will become that of a standard normal distribution
+as the sample size increases as well as meeting two conditions of
+independence (n \textless{} 10\% ) and normal, or if skewed
+distribution, then n \textgreater{} 30. Thus, from the graph we see, the
+calculated distribution of means of random sapmled exponential
+distributions, overlaps quite properly with the normal distribution with
+the assumed value of lambda.
+
+\end{document}
