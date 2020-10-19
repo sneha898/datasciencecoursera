@@ -1,0 +1,84 @@
+---
+title: "ML"
+author: "Sneha Bhattacharjee"
+date: "10/20/2020"
+output: 'HTML'
+---
+
+```{r}
+library(caret)
+library(rpart)
+library(rpart.plot)
+library(RColorBrewer)
+library(RGtk2)
+library(rattle)
+library(randomForest)
+library(gbm)
+```
+
+```{r}
+A_url <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+B_url  <- "http://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+a <- read.csv(url(A_url))
+b <- read.csv(url(B_url))
+
+dim(a)
+dim(b)
+```
+
+```{r}
+avar <- nearZeroVar(a)
+
+
+aa <- a[,-avar]
+bb <- b[,-avar]
+
+dim(aa)
+dim(bb)
+```
+
+```{r}
+nc <- sapply(aa, function(x) mean(is.na(x))) > 0.95
+
+aa <- aa[,nc == FALSE]
+bb <- bb[,nc == FALSE]
+
+dim(aa)
+dim(bb)
+```
+
+```{r}
+aa <- aa[,8:59]
+bb <- bb[,8:59]
+
+dim(aa)
+dim(bb)
+```
+
+```{r}
+intr <- createDataPartition(aa$classe, p=0.6, list=FALSE)
+r <- aa[intr,]
+s <- aa[-intr,]
+
+dim(r)
+dim(s)
+```
+
+```{r}
+md <- train(classe ~ ., data = r, method="rpart")
+pr <- predict(md, s)
+confusionMatrix(pr, s$classe)
+rpart.plot(md$finalModel, roundint=FALSE)
+```
+
+```{r}
+rm <- train(classe ~ ., data = r, method = "rf", ntree = 100)
+rpr <- predict(rm, s)
+rpc <- confusionMatrix(rpr, s$classe)
+rpc
+plot(rpc$table, col = rpc$byClass, 
+     main = paste("Random Forest - Accuracy Level =",
+                  round(rpc$overall['Accuracy'], 4)))
+```
+
+
